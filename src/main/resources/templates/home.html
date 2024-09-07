@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Home - Puppies Passion</title>
+        <th:block th:include="~{/fragments/head.html}"/>
+        <link rel="stylesheet" href="/css/home.css"/>
+    </head>
+
+    <body>
+        <!-- Navigation -->
+        <th:block th:include="~{/fragments/header.html}"/>
+
+        <div class="full-background">
+            <div class="container">
+                <h1>Welcome to Puppies Passion</h1>
+            </div>
+        </div>
+
+        <footer>
+            <th:block th:include="~{/fragments/footer.html}"/>
+        </footer>
+
+    </body>
+</html>

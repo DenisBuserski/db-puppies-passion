@@ -1,0 +1,103 @@
+body {
+    font-family: "Helvetica", sans-serif;
+    margin: 0;
+}
+
+header {
+    background: blue;
+}
+
+header nav ul {
+    text-align: center;
+    margin: 0;
+    padding: 10px;
+}
+
+header nav ul li {
+    display: inline-block; /* Подрежда елементите един до друг */
+}
+
+header nav ul li a {
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none; /* Подчертаване на тектста */
+    color: white;
+    border-radius: 5px;
+}
+
+.full-background {
+    /* Background */
+    background: url('/images/website-first-view-cover.jpg') center center / cover no-repeat;
+    /* Take full size */
+    height: 150vh;
+    width: 100%;
+}
+
+.container {
+    position: absolute; /* Position relative to .full-background */
+    top: 25%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Center the text perfectly */
+    text-align: center; /* Center text inside overlay */
+    color: white; /* Text color */
+}
+
+.container h1 {
+    /* Additional styles for the text */
+    font-size: 2em;
+    color: blue;
+    padding-top: 2em;
+}
+
+.inner-con form h2 {
+    /* Additional styles for the text */
+    font-size: 2em;
+    color: blue;
+    padding-top: 2em;
+}
+
+.inner-con form {
+    font-size: 2em;
+    color: blue;
+
+    background-color: rgba(0,105,255,0.3);
+    padding: 3rem;
+    border-radius: 1rem;
+    justify-content: center;
+    margin-top: -90px;
+
+    position: absolute; /* Position relative to .full-background */
+    top: 350%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Center the text perfectly */
+    text-align: center; /* Center text inside overlay */
+    color: white; /* Text color */
+}
+
+.inner-con form div {
+    clear: left;
+    padding-right: 10px;
+}
+
+.inner-con form div label {
+    color: black;
+    font-size: 30px;
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+    width: 100%;
+    margin-top: 25px;
+
+}
+
+.reg-button {
+    margin-top: 35px;
+}
+
+
+
+
+footer {
+    background: blue;
+}
+
+

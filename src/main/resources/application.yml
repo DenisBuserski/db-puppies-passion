@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: db-puppies-passion
+
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/puppies_passion?useSSL=false&createDatabaseIfNotExist=true
+    username: root
+    password: denis
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: create-drop
+    defer-datasource-initialization: true
+    show-sql: true # Set this property to true to enable SQL logging
+
+  sql:
+    init:
+      data-locations: classpath:data.sql
+      mode: always
+
