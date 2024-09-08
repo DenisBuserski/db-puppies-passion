@@ -15,8 +15,8 @@ spring:
     defer-datasource-initialization: true
     show-sql: true # Set this property to true to enable SQL logging
 
-  sql:
-    init:
-      data-locations: classpath:data.sql
-      mode: always
+#  sql:
+#    init:
+#      data-locations: classpath:data.sql
+#      mode: always
 
