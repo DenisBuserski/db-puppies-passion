@@ -12,10 +12,10 @@ public interface UserRegistrationMapper {
     UserRegistrationMapper INSTANCE = Mappers.getMapper(UserRegistrationMapper.class);
 
     @Mapping(source = "email", target = "email")
-//    @Mapping(source = "firstName", target = "firstName")
-//    @Mapping(source = "lastName", target = "lastName")
-//    @Mapping(source = "gender", target = "gender")
-//    @Mapping(source = "age", target = "age")
+    @Mapping(source = "firstName", target = "firstName")
+    @Mapping(source = "lastName", target = "lastName")
+    @Mapping(source = "gender", target = "gender")
+    @Mapping(source = "age", target = "age")
     User userRegistrationDtoToUser(UserRegistrationDTO userRegistrationDTO);
 
 }
