@@ -7,11 +7,11 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
-@Mapper(componentModel = "spring")
+@Mapper
 public interface UserRegistrationMapper {
     UserRegistrationMapper INSTANCE = Mappers.getMapper(UserRegistrationMapper.class);
 
-//    @Mapping(source = "email", target = "email")
+    @Mapping(source = "email", target = "email")
 //    @Mapping(source = "firstName", target = "firstName")
 //    @Mapping(source = "lastName", target = "lastName")
 //    @Mapping(source = "gender", target = "gender")
