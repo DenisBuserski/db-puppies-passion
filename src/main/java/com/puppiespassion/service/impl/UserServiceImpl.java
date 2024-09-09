@@ -2,7 +2,6 @@ package com.puppiespassion.service.impl;
 
 import com.puppiespassion.model.User;
 import com.puppiespassion.model.dto.UserRegistrationDTO;
-import com.puppiespassion.model.enums.UserRolesEnum;
 import com.puppiespassion.model.mapper.UserRegistrationMapper;
 import com.puppiespassion.repository.UserRepository;
 import com.puppiespassion.service.UserService;

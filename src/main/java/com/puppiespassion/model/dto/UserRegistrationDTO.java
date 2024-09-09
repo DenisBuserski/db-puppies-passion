@@ -1,10 +1,7 @@
 package com.puppiespassion.model.dto;
 
 import com.puppiespassion.model.enums.Gender;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @NoArgsConstructor
 public class UserRegistrationDTO {

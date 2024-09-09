@@ -1,5 +1,6 @@
 package com.puppiespassion.model;
 
+import com.puppiespassion.model.enums.UserRolesEnum;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,6 +16,7 @@ public class UserRole {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    private String userRole;
+    @Enumerated(EnumType.STRING)
+    private UserRolesEnum userRole;
 
 }

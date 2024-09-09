@@ -1,14 +1,11 @@
 package com.puppiespassion.model;
 
 import com.puppiespassion.model.enums.Gender;
+import com.puppiespassion.model.enums.UserRolesEnum;
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -38,6 +35,19 @@ public class User {
     private List<UserRole> userRole;
 
     private LocalDateTime registrationDateTime;
+
+    public User(String email, String password, String firstName, String lastName, Gender gender, int age, List<UserRole> userRole, LocalDateTime registrationDateTime) {
+        this.email = email;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.gender = gender;
+        this.age = age;
+        this.userRole = userRole;
+        this.registrationDateTime = registrationDateTime;
+    }
+
+
 
     public long getId() {
         return id;

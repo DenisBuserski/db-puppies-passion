@@ -24,7 +24,6 @@ public class UserController {
 
     @PostMapping("/register")
     private void register(@RequestBody UserRegistrationDTO userRegistrationDTO) {
-        System.out.println("HRERE");
         this.userService.registerUser(userRegistrationDTO);
     }
 
