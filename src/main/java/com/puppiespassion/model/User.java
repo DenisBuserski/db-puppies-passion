@@ -31,7 +31,10 @@ public class User {
 
     private int age;
 
-    @OneToMany
+    @ManyToMany
+    @JoinTable(name = "roles_of_users",
+            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
     private List<UserRole> userRole;
 
     private LocalDateTime registrationDateTime;
