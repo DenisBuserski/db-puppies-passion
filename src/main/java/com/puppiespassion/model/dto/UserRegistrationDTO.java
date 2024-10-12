@@ -1,22 +1,33 @@
 package com.puppiespassion.model.dto;
 
 import com.puppiespassion.model.enums.Gender;
+import jakarta.validation.constraints.*;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
 public class UserRegistrationDTO {
+
+    @NotNull(message = "Email cannot be NULL!")
+    @Email(regexp = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$", message = "Incorrect email address!")
     private String email;
 
     private String password;
 
     private String confirmPassword;
 
+    @NotNull(message = "First name cannot be NULL!")
+    @Size(min = 3, max = 50, message = "First name must be between 3 and 50 symbols!")
+    @Pattern(regexp = "^[A-Z][a-z]{2,49}$", message = "First name must start with a capital letter, followed by lowercase letters only!")
     private String firstName;
 
+    @NotNull(message = "Last name cannot be NULL!")
+    @Size(min = 3, max = 50, message = "Last name must be between 3 and 50 symbols!")
+    @Pattern(regexp = "^[A-Z][a-z]{2,49}$", message = "Last name must start with a capital letter, followed by lowercase letters only!")
     private String lastName;
 
     private Gender gender;
 
+    @Min(value = 18, message = "Age must be at least 18 years!")
     private int age;
 
     public UserRegistrationDTO(String email, String password, String confirmPassword, String firstName, String lastName, Gender gender, int age) {

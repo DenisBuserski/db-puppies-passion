@@ -3,6 +3,7 @@ package com.puppiespassion.model;
 import com.puppiespassion.model.enums.Gender;
 import com.puppiespassion.model.enums.UserRolesEnum;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
@@ -10,7 +11,6 @@ import java.util.List;
 
 @Entity
 @Table(name = "users")
-@NoArgsConstructor
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -39,6 +39,8 @@ public class User {
 
     private LocalDateTime registrationDateTime;
 
+    public User() {
+    }
     public User(String email, String password, String firstName, String lastName, Gender gender, int age, List<UserRole> userRole, LocalDateTime registrationDateTime) {
         this.email = email;
         this.password = password;
@@ -49,8 +51,6 @@ public class User {
         this.userRole = userRole;
         this.registrationDateTime = registrationDateTime;
     }
-
-
 
     public long getId() {
         return id;
