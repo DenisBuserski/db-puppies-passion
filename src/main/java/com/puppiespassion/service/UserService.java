@@ -8,4 +8,8 @@ public interface UserService {
     void registerUser(@Valid UserRegistrationDTO userRegistrationDto);
 
     boolean deleteUserById(long id);
+
+    void subscribeUser(String email);
+
+    void unsubscribe(String email);
 }

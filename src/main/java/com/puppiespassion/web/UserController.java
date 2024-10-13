@@ -10,8 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-@Controller
-@RequestMapping("api/v1/users")
+@RestController
+@RequestMapping("/users")
 public class UserController {
     private static final Logger log = LoggerFactory.getLogger(UserController.class);
 
@@ -20,6 +20,11 @@ public class UserController {
     @Autowired
     public UserController(UserService userService) {
         this.userService = userService;
+    }
+
+    @GetMapping("/registration/form")
+    public String registrationForm() {
+        return "registration.html";
     }
 
     @PostMapping("/register")
@@ -32,7 +37,18 @@ public class UserController {
         }
     }
 
-    @DeleteMapping("/delete/{user_id}")
+    @PostMapping("/subscribe") // http://localhost:8080/users/subscribe
+    public void subscribeToEmail(@RequestBody String email) {
+        this.userService.subscribeUser(email);
+        log.info("User successfully subscribed to newsletter!");
+    }
+
+    @PostMapping("/unsubscribe") // http://localhost:8080/users/unsubscribe
+    public void unsubscribe(@RequestBody String email) {
+        this.userService.unsubscribe(email);
+    }
+
+    @DeleteMapping("/delete/{user_id}") // http://localhost:8080/users/delete/{user_id}
     private void delete(@PathVariable("user_id") long id) {
         if (this.userService.deleteUserById(id)) {
             log.info("User with id: {} was deleted!", id);

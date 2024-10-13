@@ -3,9 +3,7 @@ package com.puppiespassion.model.dto;
 import com.puppiespassion.util.PasswordMatches;
 import com.puppiespassion.model.enums.Gender;
 import jakarta.validation.constraints.*;
-import lombok.NoArgsConstructor;
 
-@NoArgsConstructor
 @PasswordMatches
 public class UserRegistrationDTO {
 
