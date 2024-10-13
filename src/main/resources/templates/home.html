@@ -17,9 +17,28 @@
         </div>
 
         <footer>
-            <th:block th:include="~{/fragments/footer.html}"/>
+            <div class="information-container">
+                <th:block th:include="~{/fragments/footer.html}"/>
+            </div>
 
-            <h1>Denis</h1>
+
+            <form action="">
+                <!-- Fill up form for the user -->
+                <div class="subscription-container">
+                    <h4>Weekly newsletter</h4>
+                    <input type="text" placeholder="E-mail"
+                           name="email" required>
+                </div>
+
+                <!-- Button to subscribe -->
+                <div class="btn">
+                    <button type="submit" placeholder="Subscribe"
+                            value="Subscribe">
+                        Subscribe
+                    </button>
+                </div>
+            </form>
+
         </footer>
 
     </body>

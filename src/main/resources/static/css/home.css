@@ -66,16 +66,34 @@ footer {
   overflow: hidden;
 }
 
-footer ul li {
+footer .information-container ul li {
   padding: 10px; /* Size of the blue panel */
   list-style: none; /* Removes the bullet points from the list */
 }
 
-footer ul li a {
+footer .information-container ul li a {
   display: block;
-  padding: 0 0 0 30px; /* Adds padding to the left to move the links to the right */
+  padding: 0 0 0 50px; /* Adds padding to the left to move the links to the right */
   text-decoration: none; /* Removes the underline of the text */
   color: white; /* Text color */
+}
+
+footer .subscription-container {
+  padding: 24px;
+  border: 2px solid #ccc;
+}
+
+footer .btn button {
+  background-color: #0E9D57;
+  opacity: 0.8;
+  color: white;
+  font-size: 12px;
+  width: 100%;
+  padding: 12px;
+  margin: 12px 0;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
 }
 
 
