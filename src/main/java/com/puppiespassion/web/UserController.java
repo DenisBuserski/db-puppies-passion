@@ -1,12 +1,9 @@
 package com.puppiespassion.web;
 
-import com.puppiespassion.ExceptionHandlerUtil;
+import com.puppiespassion.util.ExceptionHandlerUtil;
 import com.puppiespassion.model.dto.UserRegistrationDTO;
-import com.puppiespassion.model.enums.Gender;
 import com.puppiespassion.service.UserService;
 import jakarta.validation.ConstraintViolationException;
-import jakarta.validation.Valid;
-import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package com.puppiespassion;
+package com.puppiespassion.util;
 
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.ConstraintViolationException;
