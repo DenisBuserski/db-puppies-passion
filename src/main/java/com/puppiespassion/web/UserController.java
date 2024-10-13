@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 @RequestMapping("api/v1/users")
 public class UserController {
-    private static final Logger log = LoggerFactory.getLogger(ExceptionHandlerUtil.class);
+    private static final Logger log = LoggerFactory.getLogger(UserController.class);
 
     private final UserService userService;
 

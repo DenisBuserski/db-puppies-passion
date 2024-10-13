@@ -11,8 +11,16 @@ public class UserRegistrationDTO {
     @Email(regexp = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$", message = "Incorrect email address!")
     private String email;
 
+    @Pattern(
+            regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@\\W_])[A-Za-z\\d@\\W_]{10,30}$",
+            message = "Confirmation password must be between 10 and 30 characters long, and must contain at least 1 lowercase letter, 1 uppercase letter, 1 number, and 1 special character!"
+    )
     private String password;
 
+    @Pattern(
+            regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@\\W_])[A-Za-z\\d@\\W_]{10,30}$",
+            message = "Confirmation password must be between 10 and 30 characters long, and must contain at least 1 lowercase letter, 1 uppercase letter, 1 number, and 1 special character!"
+    )
     private String confirmPassword;
 
     @NotNull(message = "First name cannot be NULL!")

@@ -9,9 +9,12 @@ import com.puppiespassion.model.mapper.UserRegistrationMapper;
 import com.puppiespassion.repository.UserRepository;
 import com.puppiespassion.repository.UserRoleRepository;
 import com.puppiespassion.service.UserService;
+import com.puppiespassion.web.UserController;
 import jakarta.validation.ConstraintViolationException;
 import jakarta.validation.Valid;
 import org.mapstruct.factory.Mappers;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
@@ -24,6 +27,7 @@ import java.util.Optional;
 @Service
 @Validated
 public class UserServiceImpl implements UserService {
+    private static final Logger log = LoggerFactory.getLogger(UserServiceImpl.class);
     private final UserRepository userRepository;
     private final UserRoleRepository userRoleRepository;
 
@@ -38,11 +42,18 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void registerUser(@Valid UserRegistrationDTO userRegistrationDto) throws ConstraintViolationException {
-            User user = userRegistrationMapper.userRegistrationDtoToUser(userRegistrationDto);
-            UserRole newUserRole = this.userRoleRepository.findByUserRole(UserRolesEnum.CLIENT);
-            user.setUserRole(List.of(newUserRole));
-            user.setRegistrationDateTime(LocalDateTime.now());
-            this.userRepository.save(user);
+        User user = userRegistrationMapper.userRegistrationDtoToUser(userRegistrationDto);
+        String password = userRegistrationDto.getPassword();
+        String confirmPassword = userRegistrationDto.getConfirmPassword();
+        if (!password.equals(confirmPassword)) {
+            log.error("Password and Confirm password must match!");
+            return;
+        }
+
+        UserRole newUserRole = this.userRoleRepository.findByUserRole(UserRolesEnum.CLIENT);
+        user.setUserRole(List.of(newUserRole));
+        user.setRegistrationDateTime(LocalDateTime.now());
+        this.userRepository.save(user);
     }
 
     @Override
