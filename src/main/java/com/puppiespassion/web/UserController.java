@@ -38,9 +38,10 @@ public class UserController {
     }
 
     @PostMapping("/subscribe") // http://localhost:8080/users/subscribe
-    public void subscribeToEmail(@RequestBody String email) {
+    public String subscribeToEmail(@RequestParam String email) {
         this.userService.subscribeUser(email);
         log.info("User successfully subscribed to newsletter!");
+        return "home.html";
     }
 
     @PostMapping("/unsubscribe") // http://localhost:8080/users/unsubscribe
