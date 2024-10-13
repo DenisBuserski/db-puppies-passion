@@ -16,19 +16,10 @@
             </div>
         </div>
 
+
+
         <footer>
-            <div class="information-container">
-                <th:block th:include="~{/fragments/footer.html}"/>
-            </div>
-
-            <div class="subscription-box">
-                <h4>Subscribe to our weekly newsletter</h4>
-                <form th:action="@{/users/subscribe}" method="post">
-                    <input type="email" placeholder="Enter your email" name="email" required />
-                    <button type="submit" placeholder="Subscribe" value="Subscribe">Subscribe</button>
-                </form>
-            </div>
-
+            <th:block th:include="~{/fragments/footer.html}"/>
         </footer>
 
     </body>

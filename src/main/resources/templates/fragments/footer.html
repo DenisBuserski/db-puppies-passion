@@ -1,8 +1,22 @@
 <footer>
-    <ul>
-        <li><a th:href="@{/about}">About Us</a> </li>
-        <li><a th:href="@{/contact}">Contact Us</a> </li>
-        <li><a th:href="@{/faq}">FAQ</a> </li>
-        <li><a th:href="@{/refund}">Refund Policy</a> </li>
-    </ul>
+    <div class="information-container">
+        <ul>
+            <li><a th:href="@{/about}">About Us</a> </li>
+            <li><a th:href="@{/contact}">Contact Us</a> </li>
+            <li><a th:href="@{/faq}">FAQ</a> </li>
+            <li><a th:href="@{/refund}">Refund Policy</a> </li>
+        </ul>
+    </div>
+
+    <div class="subscription-box">
+        <h4>Subscribe to our weekly newsletter</h4>
+        <form th:action="@{/users/subscribe}" method="post">
+            <input type="email" placeholder="Enter your email" name="email" required />
+            <button type="submit" placeholder="Subscribe" value="Subscribe">Subscribe</button>
+        </form>
+    </div>
+
 </footer>
+
+
+

@@ -59,6 +59,16 @@ header nav ul li a {
 }
 
 
+
+
+
+
+
+
+
+
+
+
 footer {
   background: blue; /* Footer background */
   overflow: hidden;
@@ -66,25 +76,35 @@ footer {
   justify-content: center; /* Centers the two divs horizontally */
   align-items: center; /* Vertically aligns the items */
   padding: 20px; /* Adds padding around the footer */
-  gap: 50px; /* Adds space between the two divs */
+  gap: 100px; /* Adds space between the two divs (information-container and subscription-box) */
+}
+
+footer .information-container ul {
+  padding: 0;
+  margin: 0;
 }
 
 footer .information-container ul li {
-  padding: 10px; /* Size of the blue panel */
-  list-style: none; /* Removes the bullet points from the list */
+  padding: 10px; /* Space around each link */
+  list-style: none; /* Removes bullet points */
 }
 
 footer .information-container ul li a {
   display: block;
-  padding: 0 0 0 50px; /* Adds padding to the left to move the links to the right */
-  text-decoration: none; /* Removes the underline of the text */
-  color: white; /* Text color */
+  padding-left: 50px; /* Adds left padding to move links inward */
+  text-decoration: none; /* Removes underline */
+  color: white; /* Sets link text color to white */
 }
 
 .subscription-box {
   display: flex;
   flex-direction: column; /* Aligns content in the subscription box vertically */
   gap: 10px; /* Adds space between the heading and the form */
+  color: white; /* Ensures text in the subscription box is white */
+}
+
+.subscription-box h4 {
+  margin: 0; /* Removes default margin from the heading */
 }
 
 .subscription-box form {
@@ -95,7 +115,7 @@ footer .information-container ul li a {
 .subscription-box input[type="email"] {
   padding: 10px;
   font-size: 14px;
-  flex: 1; /* Makes the input field grow to take available space */
+  flex: 1; /* Makes the input field expand to fill available space */
 }
 
 .subscription-box button {
@@ -108,5 +128,5 @@ footer .information-container ul li a {
 }
 
 .subscription-box button:hover {
-  background-color: #555;
+  background-color: #555; /* Changes background color on hover */
 }
