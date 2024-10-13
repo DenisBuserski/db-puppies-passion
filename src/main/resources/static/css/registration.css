@@ -42,29 +42,22 @@ header nav ul li a {
     color: white; /* Text color */
 }
 
-.container h1 {
-    /* Additional styles for the text */
-    font-size: 2em;
-    color: blue;
-    padding-top: 2em;
-}
-
 .inner-con form h2 {
     /* Additional styles for the text */
     font-size: 2em;
-    color: blue;
-    padding-top: 2em;
+    color: blue; /* Colour of the "Registration form" */
+    padding-top: -50px;
 }
 
 .inner-con form {
     font-size: 2em;
     color: blue;
 
-    background-color: rgba(0,105,255,0.3);
+    background-color: rgba(0,105,255,0.3); /* White blue color for registration form*/
     padding: 3rem;
     border-radius: 1rem;
     justify-content: center;
-    margin-top: -90px;
+    margin-top: 500px;
 
     position: absolute; /* Position relative to .full-background */
     top: 350%; /* Center vertically */
@@ -90,7 +83,7 @@ header nav ul li a {
 }
 
 .reg-button {
-    margin-top: 35px;
+    margin-top: 55px;
 }
 
 

@@ -4,9 +4,7 @@ import com.puppiespassion.model.dto.UserRegistrationDTO;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 
-import java.lang.reflect.Field;
-
-public class PasswordMatcher implements ConstraintValidator<PasswordMatches, UserRegistrationDTO> {
+public class PasswordMatcher implements ConstraintValidator<PasswordsMatches, UserRegistrationDTO> {
 
     @Override
     public boolean isValid(UserRegistrationDTO user, ConstraintValidatorContext context) {

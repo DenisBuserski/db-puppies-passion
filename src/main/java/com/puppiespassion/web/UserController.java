@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
+@Controller
 @RequestMapping("/users")
 public class UserController {
     private static final Logger log = LoggerFactory.getLogger(UserController.class);
@@ -24,7 +24,7 @@ public class UserController {
 
     @GetMapping("/registration/form")
     public String registrationForm() {
-        return "registration.html";
+        return "registration";
     }
 
     @PostMapping("/register")

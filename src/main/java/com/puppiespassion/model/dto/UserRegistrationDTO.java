@@ -1,10 +1,10 @@
 package com.puppiespassion.model.dto;
 
-import com.puppiespassion.util.PasswordMatches;
+import com.puppiespassion.util.PasswordsMatches;
 import com.puppiespassion.model.enums.Gender;
 import jakarta.validation.constraints.*;
 
-@PasswordMatches
+@PasswordsMatches
 public class UserRegistrationDTO {
 
     @NotNull(message = "Email cannot be NULL!")
