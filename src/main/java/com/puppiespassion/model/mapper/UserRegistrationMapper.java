@@ -2,8 +2,6 @@ package com.puppiespassion.model.mapper;
 
 import com.puppiespassion.model.User;
 import com.puppiespassion.model.dto.UserRegistrationDTO;
-
-import jakarta.validation.Valid;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
