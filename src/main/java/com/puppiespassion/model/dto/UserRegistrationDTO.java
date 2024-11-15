@@ -3,9 +3,19 @@ package com.puppiespassion.model.dto;
 import com.puppiespassion.util.PasswordsMatches;
 import com.puppiespassion.model.enums.Gender;
 import jakarta.validation.constraints.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+@NoArgsConstructor
+@Getter
+@Setter
 @PasswordsMatches
 public class UserRegistrationDTO {
+
+    @NotNull(message = "Username cannot be NULL!")
+    @Size(min = 5, max = 50, message = "Username must be between 5 and 50 symbols!")
+    private String username;
 
     @NotNull(message = "Email cannot be NULL!")
     @Email(regexp = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$", message = "Incorrect email address!")
@@ -38,7 +48,8 @@ public class UserRegistrationDTO {
     @Min(value = 18, message = "Age must be at least 18 years!")
     private int age;
 
-    public UserRegistrationDTO(String email, String password, String confirmPassword, String firstName, String lastName, Gender gender, int age) {
+    public UserRegistrationDTO(String username, String email, String password, String confirmPassword, String firstName, String lastName, Gender gender, int age) {
+        this.username = username;
         this.email = email;
         this.password = password;
         this.confirmPassword = confirmPassword;
@@ -48,66 +59,8 @@ public class UserRegistrationDTO {
         this.age = age;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public UserRegistrationDTO setEmail(String email) {
-        this.email = email;
-        return this;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public UserRegistrationDTO setPassword(String password) {
-        this.password = password;
-        return this;
-    }
-
-    public String getConfirmPassword() {
-        return confirmPassword;
-    }
-
-    public UserRegistrationDTO setConfirmPassword(String confirmPassword) {
-        this.confirmPassword = confirmPassword;
-        return this;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public UserRegistrationDTO setFirstName(String firstName) {
-        this.firstName = firstName;
-        return this;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public UserRegistrationDTO setLastName(String lastName) {
-        this.lastName = lastName;
-        return this;
-    }
-
-    public Gender getGender() {
-        return gender;
-    }
-
-    public UserRegistrationDTO setGender(Gender gender) {
-        this.gender = gender;
-        return this;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public UserRegistrationDTO setAge(int age) {
-        this.age = age;
-        return this;
+    @Override
+    public String toString() {
+        return String.format("Username: %s | Email: %s | First name: %s | Last name: %s | Gender: %s | Age: %d", username, email, firstName, lastName, gender.name(), age);
     }
 }

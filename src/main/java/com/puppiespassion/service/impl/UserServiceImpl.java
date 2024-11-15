@@ -25,7 +25,6 @@ import java.util.Optional;
 @Service
 @Validated
 public class UserServiceImpl implements UserService {
-    private static final Logger log = LoggerFactory.getLogger(UserServiceImpl.class);
     private final UserRepository userRepository;
     private final UserRoleRepository userRoleRepository;
 
@@ -42,9 +41,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void registerUser(@Valid UserRegistrationDTO userRegistrationDto) throws ConstraintViolationException {
+    public void registerUser(UserRegistrationDTO userRegistrationDto) throws ConstraintViolationException {
         User user = userRegistrationMapper.userRegistrationDtoToUser(userRegistrationDto);
+        // find user by username
+        // find user by email
         UserRole newUserRole = this.userRoleRepository.findByUserRole(UserRolesEnum.CLIENT);
+
         user.setUserRole(List.of(newUserRole));
         user.setRegistrationDateTime(LocalDateTime.now());
         this.userRepository.save(user);

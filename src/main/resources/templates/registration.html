@@ -13,12 +13,15 @@
         <div class="full-background">
             <div class="container">
                 <div class="inner-con">
-                    <form th:action="@{/user/registration}"
+
+                    <form th:action="@{/users/registration/form}"
                           th:method="post"
                           th:object="${userRegistrationDTO}">
+
                         <h2>Registration form</h2>
                         <div>
                             <label>Username</label>
+                            <input name="">
                             <input type="text" name="username" placeholder="Username" required>
                         </div>
                         <div>
@@ -49,13 +52,9 @@
                         <div class="reg-button">
                             <button type="submit">Register</button>
                         </div>
-
-
-
                     </form>
 
                 </div>
-
             </div>
         </div>
 

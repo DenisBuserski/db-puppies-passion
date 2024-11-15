@@ -18,6 +18,8 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    private String username;
+
     private String email;
 
     private String password;
@@ -41,7 +43,8 @@ public class User {
 
     private LocalDateTime registrationDateTime;
 
-    public User(String email, String password, String firstName, String lastName, Gender gender, int age, List<UserRole> userRole, LocalDateTime registrationDateTime) {
+    public User(String username, String email, String password, String firstName, String lastName, Gender gender, int age, List<UserRole> userRole, LocalDateTime registrationDateTime) {
+        this.username = username;
         this.email = email;
         this.password = password;
         this.firstName = firstName;
