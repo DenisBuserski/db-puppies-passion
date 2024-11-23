@@ -91,6 +91,14 @@ header nav ul li a {
     font-size: 1em;
 }
 
+.registration-form-field select { /* Apply styles for both input and select */
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    flex-grow: 1; /* Make both input and select take equal width */
+}
+
 .registration-button {
     margin-top: 55px;
     text-align: center; /* Center the button within the div */

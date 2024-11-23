@@ -3,6 +3,7 @@ package com.puppiespassion.service.impl;
 import com.puppiespassion.model.User;
 import com.puppiespassion.model.UserRole;
 import com.puppiespassion.model.UserSubscription;
+import com.puppiespassion.model.dto.UserLoginDTO;
 import com.puppiespassion.model.dto.UserRegistrationDTO;
 import com.puppiespassion.model.enums.UserRolesEnum;
 import com.puppiespassion.model.mapper.UserRegistrationMapper;
@@ -53,6 +54,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public void loginUser(UserLoginDTO userLoginDTO) {
+
+    }
+
+    @Override
     public void subscribeUser(String email) {
         this.userSubscriptionRepository.save(new UserSubscription(email));
     }
@@ -62,6 +68,8 @@ public class UserServiceImpl implements UserService {
         Optional<UserSubscription> subscribedUser = this.userSubscriptionRepository.findByEmail(email);
         this.userSubscriptionRepository.delete(subscribedUser.get());
     }
+
+
 
     @Override
     public boolean deleteUserById(long id) {

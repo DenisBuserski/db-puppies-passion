@@ -1,4 +1,4 @@
-package com.puppiespassion.util;
+package com.puppiespassion.model.validation;
 
 import com.puppiespassion.model.dto.UserRegistrationDTO;
 import jakarta.validation.ConstraintValidator;

@@ -33,7 +33,7 @@ public class User {
     @Enumerated(EnumType.STRING)
     private Gender gender;
 
-    private int age;
+    private Integer age;
 
     @ManyToMany
     @JoinTable(name = "roles_of_users",
@@ -42,18 +42,6 @@ public class User {
     private List<UserRole> userRole;
 
     private LocalDateTime registrationDateTime;
-
-    public User(String username, String email, String password, String firstName, String lastName, Gender gender, int age, List<UserRole> userRole, LocalDateTime registrationDateTime) {
-        this.username = username;
-        this.email = email;
-        this.password = password;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.gender = gender;
-        this.age = age;
-        this.userRole = userRole;
-        this.registrationDateTime = registrationDateTime;
-    }
 
 
 }

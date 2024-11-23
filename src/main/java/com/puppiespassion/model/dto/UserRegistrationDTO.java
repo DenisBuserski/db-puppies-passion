@@ -1,8 +1,8 @@
 package com.puppiespassion.model.dto;
 
-import com.puppiespassion.util.PasswordsMatches;
+import com.puppiespassion.model.validation.PasswordsMatches;
 import com.puppiespassion.model.enums.Gender;
-import com.puppiespassion.util.IsValidGender;
+import com.puppiespassion.model.validation.IsValidGender;
 import jakarta.validation.constraints.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -49,7 +49,7 @@ public class UserRegistrationDTO {
     private Gender gender;
 
     @Min(value = 18, message = "Age must be at least 18 years!")
-    private int age;
+    private Integer age;
 
     public UserRegistrationDTO(String username, String email, String password, String confirmPassword, String firstName, String lastName, Gender gender, int age) {
         this.username = username;

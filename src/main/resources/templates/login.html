@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Registration form</title>
+        <th:block th:include="~{/fragments/head.html}"/>
+        <link rel="stylesheet" href="/css/style.css"/>
+    </head>
+
+    <body>
+        <!-- Navigation -->
+        <th:block th:include="~{/fragments/header.html}"/>
+
+        <div class="full-background">
+            <div class="registration-container">
+                <form class="registration-form"
+                      th:action="@{/users/registration/form}"
+                      th:method="post"
+                      th:object="${userRegistrationDTO}">
+                    <h2>Login form</h2>
+                    <div class="registration-form-field">
+                        <label for="username">Username</label>
+                        <input id="username"
+                               th:field="*{username}"
+                               th:errorclass="is-invalid"
+                               type="text" name="username"
+                               placeholder="Username"
+                               required>
+                    </div>
+                    <div class="registration-form-field">
+                        <label for="password">Password</label>
+                        <input id="password"
+                               th:field="*{password}"
+                               th:errorclass="is-invalid"
+                               type="password"
+                               placeholder="Password"
+                               required>
+                    </div>
+                    <div class="registration-button">
+                        <button type="submit">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <footer>
+            <th:block th:include="~{/fragments/footer.html}"/>
+        </footer>
+
+    </body>
+</html>

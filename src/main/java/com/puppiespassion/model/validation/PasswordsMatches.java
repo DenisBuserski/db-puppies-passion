@@ -1,4 +1,4 @@
-package com.puppiespassion.util;
+package com.puppiespassion.model.validation;
 
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;

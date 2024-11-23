@@ -1,5 +1,6 @@
 package com.puppiespassion.web;
 
+import com.puppiespassion.model.dto.UserLoginDTO;
 import com.puppiespassion.util.ExceptionHandlerUtil;
 import com.puppiespassion.model.dto.UserRegistrationDTO;
 import com.puppiespassion.service.UserService;
@@ -16,6 +17,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
+
+import static com.puppiespassion.util.ExceptionHandlerUtil.logValidationErrors;
 
 @Controller
 @RequestMapping("/users")
@@ -43,26 +46,29 @@ public class UserController {
         if (bindingResult.hasErrors()) {
             redirectAttributes.addFlashAttribute("userRegistrationDTO", userRegistrationDTO);
             redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.userRegistrationDTO", bindingResult);
-            List<ObjectError> allErrors = bindingResult.getAllErrors();
-            for (ObjectError allError : allErrors) {
-                log.error("{}", allError.toString());
-            }
-
+            logValidationErrors(bindingResult);
 
             return "redirect:/users/registration/form";
         }
 
         this.userService.registerUser(userRegistrationDTO);
         log.info("Successfully registered [{}]", userRegistrationDTO.toString());
-
         return "redirect:/users/login";
+    }
 
-//        try {
-//            this.userService.registerUser(userRegistrationDTO);
-//            log.info("User registered successfully!");
-//        } catch (ConstraintViolationException exception) {
-//            ExceptionHandlerUtil.handleConstraintViolationException(exception);
-//        }
+    @GetMapping("/login")
+    public String login() {
+        return "login";
+    }
+
+    @PostMapping("/login")
+    public String login(UserLoginDTO userLoginDTO) {
+        return "redirect:/home";
+    }
+
+    @GetMapping("/logout")
+    public String logout() {
+        return "redirect:/home";
     }
 
     @PostMapping("/subscribe") // http://localhost:8080/users/subscribe
