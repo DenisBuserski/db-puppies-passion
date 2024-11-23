@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Registration form</title>
+        <th:block th:include="~{/fragments/head.html}"/>
+        <link rel="stylesheet" href="/css/style.css"/>
+    </head>
+
+    <body>
+        <!-- Navigation -->
+        <th:block th:include="~{/fragments/header.html}"/>
+
+
+
+        <div class="products-container">
+            <h2>Best sellers</h2>
+            <div class="best-sellers">
+                <a href="" class="best-seller-item">
+                    <img src="" alt="Best Seller 1">
+                    <span>Best Seller 1</span>
+                </a>
+                <a href="" class="best-seller-item">
+                    <img src="" alt="Best Seller 2">
+                    <span>Best Seller 2</span>
+                </a>
+                <a href="" class="best-seller-item">
+                    <img src="" alt="Best Seller 3">
+                    <span>Best Seller 3</span>
+                </a>
+                <a href="" class="best-seller-item">
+                    <img src="" alt="Best Seller 4">
+                    <span>Best Seller 4</span>
+                </a>
+            </div>
+
+            <h2>Categories</h2>
+            <div class="categories">
+                <a th:href="@{/products/category/bags}" class="category-item">
+                    <img src="/images/categories/dog-bags.jpg" alt="dog-bags">
+                    <span>Bags</span>
+                </a>
+                <a th:href="@{/products/category/beds}" class="category-item">
+                    <img src="/images/categories/dog-beds.jpg" alt="dog-beds">
+                    <span>Beds</span>
+                </a>
+                <a th:href="@{/products/category/bowls}" class="category-item">
+                    <img src="/images/categories/dog-bowls.png" alt="dog-bowls">
+                    <span>Bowls</span>
+                </a>
+                <a th:href="@{/products/category/clothes}" class="category-item">
+                    <img src="/images/categories/dog-clothes.jpg" alt="dog-clothes">
+                    <span>Clothes</span>
+                </a>
+                <a th:href="@{/products/category/combs}" class="category-item">
+                    <img src="/images/categories/dog-combs.jpg" alt="dog-combs">
+                    <span>Combs</span>
+                </a>
+                <a th:href="@{/products/category/jewelry}" class="category-item">
+                    <img src="/images/categories/dog-jewelry.jpg" alt="dog-jewelry">
+                    <span>Jewelry</span>
+                </a>
+                <a th:href="@{/products/category/leashes}" class="category-item">
+                    <img src="/images/categories/dog-leashes.jpg" alt="dog-leashes">
+                    <span>Leashes</span>
+                </a>
+                <a th:href="@{/products/category/toys}" class="category-item">
+                    <img src="/images/categories/dog-toys.jpg" alt="dog-toys">
+                    <span>Toys</span>
+                </a>
+            </div>
+        </div>
+
+        <footer>
+            <th:block th:include="~{/fragments/footer.html}"/>
+        </footer>
+    </body>
+</html>
