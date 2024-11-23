@@ -2,14 +2,16 @@ package com.puppiespassion.model.dto;
 
 import com.puppiespassion.util.PasswordsMatches;
 import com.puppiespassion.model.enums.Gender;
+import com.puppiespassion.util.IsValidGender;
 import jakarta.validation.constraints.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@NoArgsConstructor
+
 @Getter
 @Setter
+@NoArgsConstructor
 @PasswordsMatches
 public class UserRegistrationDTO {
 
@@ -43,6 +45,7 @@ public class UserRegistrationDTO {
     @Pattern(regexp = "^[A-Z][a-z]{2,49}$", message = "Last name must start with a capital letter, followed by lowercase letters only!")
     private String lastName;
 
+    @IsValidGender
     private Gender gender;
 
     @Min(value = 18, message = "Age must be at least 18 years!")

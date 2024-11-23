@@ -11,8 +11,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/users")
@@ -35,19 +38,24 @@ public class UserController {
         return "registration";
     }
 
-    @PostMapping("/register")
+    @PostMapping("/registration/form")
     private String register(@Valid UserRegistrationDTO userRegistrationDTO, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
         if (bindingResult.hasErrors()) {
             redirectAttributes.addFlashAttribute("userRegistrationDTO", userRegistrationDTO);
             redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.userRegistrationDTO", bindingResult);
+            List<ObjectError> allErrors = bindingResult.getAllErrors();
+            for (ObjectError allError : allErrors) {
+                log.error("{}", allError.toString());
+            }
 
-            return "redirect:/registration/form";
+
+            return "redirect:/users/registration/form";
         }
 
         this.userService.registerUser(userRegistrationDTO);
         log.info("Successfully registered [{}]", userRegistrationDTO.toString());
 
-        return "redirect:/login";
+        return "redirect:/users/login";
 
 //        try {
 //            this.userService.registerUser(userRegistrationDTO);
