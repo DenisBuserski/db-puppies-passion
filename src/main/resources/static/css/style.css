@@ -45,6 +45,16 @@ header nav ul li a {
     width: 100%;
 }
 
+
+/* HOME */
+.homepage-container {
+
+}
+
+
+
+
+
 /* REGISTRATION / LOGIN */
 .registration-container {
     position: absolute; /* Position relative to .full-background */
