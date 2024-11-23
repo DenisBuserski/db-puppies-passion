@@ -75,7 +75,7 @@ public class UserController {
     public String subscribeToEmail(@RequestParam String email) {
         this.userService.subscribeUser(email);
         log.info("User successfully subscribed to newsletter!");
-        return "home.html";
+        return "redirect:/home";
     }
 
     @PostMapping("/unsubscribe") // http://localhost:8080/users/unsubscribe
