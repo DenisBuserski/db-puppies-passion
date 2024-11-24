@@ -19,4 +19,6 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
            LIMIT 4
            """)
     List<Product> findBestSellers();
+
+    List<Product> findByCategoryName(String categoryName);
 }

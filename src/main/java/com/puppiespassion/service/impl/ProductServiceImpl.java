@@ -28,4 +28,9 @@ public class ProductServiceImpl implements ProductService {
     public List<Product> findBestSellers() {
         return this.productRepository.findBestSellers();
     }
+
+    @Override
+    public List<Product> findByCategoryName(String categoryName) {
+        return this.productRepository.findByCategoryName(categoryName);
+    }
 }

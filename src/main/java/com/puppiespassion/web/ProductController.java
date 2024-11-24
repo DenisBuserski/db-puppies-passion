@@ -1,7 +1,9 @@
 package com.puppiespassion.web;
 
+import com.puppiespassion.model.Category;
 import com.puppiespassion.model.Product;
 import com.puppiespassion.model.enums.CategoryEnum;
+import com.puppiespassion.service.CategoryService;
 import com.puppiespassion.service.impl.ProductServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,10 +21,12 @@ import java.util.stream.Collectors;
 @Slf4j
 public class ProductController {
     private final ProductServiceImpl productService;
+    private final CategoryService categoryService;
 
     @Autowired
-    public ProductController(ProductServiceImpl productService) {
+    public ProductController(ProductServiceImpl productService, CategoryService categoryService) {
         this.productService = productService;
+        this.categoryService = categoryService;
     }
 
     @ModelAttribute("categories") // Pass all enum values to the model
@@ -46,11 +50,11 @@ public class ProductController {
         for (CategoryEnum value : values) {
             log.info("Selected Category [{}]", category);
             if (value.getName().toLowerCase().equals(category)) {
+                Category categoryByName = this.categoryService.findCategoryByName(category);
+                List<Product> products = this.productService.findByCategoryName(category);
 
-                // List<Product> products = productService.getProductsByCategory(category);
-
-                // Add the products to the model
-//                model.addAttribute("products", products);
+                model.addAttribute("category", categoryByName);
+                model.addAttribute("products", products);
                 log.info("Moving to page [/products/category/{}.html]", category);
                 return "products/" + category;
             }

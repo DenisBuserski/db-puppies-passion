@@ -10,21 +10,15 @@
         <!-- Navigation -->
         <th:block th:include="~{/fragments/header.html}"/>
 
-        <div class="products-container">
-            <div class="categories">
-                <h1>Products in ${categories.name()} Category</h1>
-
-                <div class="product-list">
-                    <div th:each="product : ${products}" class="product-item">
-                        <img th:src="${product.imageUrl}" th:alt="${product.name}" />
-                        <h2 th:text="${product.name}"></h2>
-                        <p th:text="${product.description}"></p>
-                        <span th:text="${product.price}"></span>
-                        <a th:href="@{/products/{id}(id=${product.id})}">View Product</a>
-                    </div>
+        <div class="categories-products-container">
+            <h1 th:text="${category.getName()}"></h1>
+            <div class="product-list">
+                <div th:each="product : ${products}" class="product-item">
+                    <img th:src="${product.getPictureUrls().getFirst().getUrl()}" th:alt="${product.getName()}" />
+                    <span th:text="${product.getName()}"></span>
+                    <span th:text="${product.getPrice()} + ' EUR'"></span>
+                    <a th:href="@{/products/{id}(id=${product.id})}">View Product</a>
                 </div>
-
-
             </div>
         </div>
 

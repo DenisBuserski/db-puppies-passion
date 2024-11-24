@@ -1,8 +1,10 @@
 package com.puppiespassion.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,10 +34,10 @@ public class Product {
     @ManyToOne
     private Category category;
 
+    private BigDecimal price;
+
     private long availableQuantity;
 
     private long quantitySold;
-
-
 
 }

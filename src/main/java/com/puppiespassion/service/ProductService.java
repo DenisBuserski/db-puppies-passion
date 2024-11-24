@@ -9,4 +9,6 @@ public interface ProductService {
     void insertNewProduct(Product product);
 
     List<Product> findBestSellers();
+
+    List<Product> findByCategoryName(String categoryName);
 }

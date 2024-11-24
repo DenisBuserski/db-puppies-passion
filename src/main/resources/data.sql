@@ -29,7 +29,7 @@ INSERT INTO pictures (id, url) VALUES (6, '/images/categories/bags/model-bag-1/m
 INSERT INTO pictures (id, url) VALUES (7, '/images/categories/bags/model-bag-1/model-bag-1_7.jpg');
 
 -- Add product1
-INSERT INTO products (id, name, description, category_id, available_quantity, quantity_sold) VALUES (1, 'Test_product1', 'Test_desc2', 1, 1000, 0);
+INSERT INTO products (id, name, description, category_id, price, available_quantity, quantity_sold) VALUES (1, 'Test_product1', 'Test_desc2', 1, 0, 1000, 0);
 
 -- Add product1 to category1
 INSERT INTO categories_products (category_id, products_id) VALUES (1, 1);
@@ -55,7 +55,7 @@ INSERT INTO pictures (id, url) VALUES (13, '/images/categories/bags/model-bag-2/
 INSERT INTO pictures (id, url) VALUES (14, '/images/categories/bags/model-bag-2/model-bag-2_7.jpg');
 
 -- Add product2
-INSERT INTO products (id, name, description, category_id, available_quantity, quantity_sold) VALUES (2, 'Test_product2', 'Test_desc2', 1, 2000, 0);
+INSERT INTO products (id, name, description, category_id, price, available_quantity, quantity_sold) VALUES (2, 'Test_product2', 'Test_desc2', 1, 100, 2000, 0);
 
 -- Add product2 to category1
 INSERT INTO categories_products (category_id, products_id) VALUES (1, 2);
@@ -79,7 +79,7 @@ INSERT INTO pictures (id, url) VALUES (18, '/images/categories/bags/model-bag-3/
 INSERT INTO pictures (id, url) VALUES (19, '/images/categories/bags/model-bag-3/model-bag-3_5.jpg');
 
 -- Add product3
-INSERT INTO products (id, name, description, category_id, available_quantity, quantity_sold) VALUES (3, 'Test_product3', 'Test_desc3', 1, 3000, 1);
+INSERT INTO products (id, name, description, category_id, price, available_quantity, quantity_sold) VALUES (3, 'Test_product3', 'Test_desc3', 1, 200, 3000, 1);
 
 -- Add product3 to category1
 INSERT INTO categories_products (category_id, products_id) VALUES (1, 3);
