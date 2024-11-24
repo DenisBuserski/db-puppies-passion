@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 @Slf4j
@@ -23,14 +25,18 @@ public class ProductController {
         this.productService = productService;
     }
 
-    @ModelAttribute("categories")
+    @ModelAttribute("categories") // Pass all enum values to the model
     public CategoryEnum[] populateCategories() {
-        return CategoryEnum.values(); // Pass all enum values to the model
+        return CategoryEnum.values();
     }
 
     @GetMapping("/products")
-    public String getAllProductsPage() {
+    public String getAllProductsPage(Model model) {
         log.info("Moving to page [/products/products.html]");
+        List<Product> products = productService.findBestSellers();
+
+        // Add the products to the model
+        model.addAttribute("products", products);
         return "products/products.html";
     }
 
@@ -40,17 +46,22 @@ public class ProductController {
         for (CategoryEnum value : values) {
             log.info("Selected Category [{}]", category);
             if (value.getName().toLowerCase().equals(category)) {
-                List<Product> products = productService.getProductsByCategory(category);
+
+                // List<Product> products = productService.getProductsByCategory(category);
 
                 // Add the products to the model
-                model.addAttribute("products", products);
-                model.addAttribute("selectedCategory", value);
+//                model.addAttribute("products", products);
                 log.info("Moving to page [/products/category/{}.html]", category);
                 return "products/" + category;
             }
         }
         log.info("Redirecting to page [/products/products.html]");
         return "redirect:/products";
+    }
+
+    @GetMapping("/products/{id}")
+    public String getProductPage(@PathVariable int id) {
+        return "";
     }
 
 

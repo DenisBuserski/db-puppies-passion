@@ -163,6 +163,11 @@ header nav ul li a {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.best-seller-item a, .category-item a {
+    text-decoration: none; /* Removes underline */
+    color: inherit; /* Inherits color from parent (e.g., black) */
+}
+
 .best-seller-item img, .category-item img {
     width: 300px; /* Larger image size */
     height: 300px;
@@ -177,6 +182,7 @@ header nav ul li a {
     margin-top: 0.3rem; /* Minimal spacing between image and text */
     font-size: 1em; /* Proportional text size */
     font-weight: bold;
+    color: black;
 }
 
 .best-seller-item:hover img, .category-item:hover img {

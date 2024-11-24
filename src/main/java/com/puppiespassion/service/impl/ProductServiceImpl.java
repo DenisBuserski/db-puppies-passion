@@ -24,8 +24,8 @@ public class ProductServiceImpl implements ProductService {
         this.productRepository.save(product);
     }
 
-    public List<Product> getProductsByCategory(String categoryName) {
-        // Assuming the ProductRepository has a method to find products by category
-        return productRepository.findByCategoryName(categoryName);
+    @Override
+    public List<Product> findBestSellers() {
+        return this.productRepository.findBestSellers();
     }
 }

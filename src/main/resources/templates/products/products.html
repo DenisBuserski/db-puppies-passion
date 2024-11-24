@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
     <head>
-        <title>Registration form</title>
+        <title>Products - Puppies Passion</title>
         <th:block th:include="~{/fragments/head.html}"/>
         <link rel="stylesheet" href="/css/style.css"/>
     </head>
@@ -13,22 +13,12 @@
         <div class="products-container">
             <h2>Best sellers</h2>
             <div class="best-sellers">
-                <a href="" class="best-seller-item">
-                    <img src="" alt="Best Seller 1">
-                    <span>Best Seller 1</span>
-                </a>
-                <a href="" class="best-seller-item">
-                    <img src="" alt="Best Seller 2">
-                    <span>Best Seller 2</span>
-                </a>
-                <a href="" class="best-seller-item">
-                    <img src="" alt="Best Seller 3">
-                    <span>Best Seller 3</span>
-                </a>
-                <a href="" class="best-seller-item">
-                    <img src="" alt="Best Seller 4">
-                    <span>Best Seller 4</span>
-                </a>
+                <div th:each="product : ${products}" class="best-seller-item">
+                    <a th:href="@{/products/{id}(id=${product.id})}">
+                        <img th:src="@{${product.getPictureUrls().getFirst().getUrl()}}" th:alt="${product.getName()}">
+                        <span th:text="${product.getName()}"></span>
+                    </a>
+                </div>
             </div>
 
             <h2>Categories</h2>

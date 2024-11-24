@@ -20,3 +20,10 @@ spring:
       data-locations: classpath:data.sql
       mode: always
 
+# REMOVE AFTER DEVELOPMENT
+logging:
+      level:
+        root: INFO
+        org.thymeleaf: ERROR
+        org.springframework: WARN
+        com.example: DEBUG
