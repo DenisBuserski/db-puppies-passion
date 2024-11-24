@@ -35,38 +35,13 @@
 
             <h2>Categories</h2>
             <div class="categories">
-                <a th:href="@{/products/category/bags}" class="category-item">
-                    <img src="/images/categories/dog-bags.jpg" alt="dog-bags">
-                    <span>Bags</span>
-                </a>
-                <a th:href="@{/products/category/beds}" class="category-item">
-                    <img src="/images/categories/dog-beds.jpg" alt="dog-beds">
-                    <span>Beds</span>
-                </a>
-                <a th:href="@{/products/category/bowls}" class="category-item">
-                    <img src="/images/categories/dog-bowls.png" alt="dog-bowls">
-                    <span>Bowls</span>
-                </a>
-                <a th:href="@{/products/category/clothes}" class="category-item">
-                    <img src="/images/categories/dog-clothes.jpg" alt="dog-clothes">
-                    <span>Clothes</span>
-                </a>
-                <a th:href="@{/products/category/combs}" class="category-item">
-                    <img src="/images/categories/dog-combs.jpg" alt="dog-combs">
-                    <span>Combs</span>
-                </a>
-                <a th:href="@{/products/category/jewelry}" class="category-item">
-                    <img src="/images/categories/dog-jewelry.jpg" alt="dog-jewelry">
-                    <span>Jewelry</span>
-                </a>
-                <a th:href="@{/products/category/leashes}" class="category-item">
-                    <img src="/images/categories/dog-leashes.jpg" alt="dog-leashes">
-                    <span>Leashes</span>
-                </a>
-                <a th:href="@{/products/category/toys}" class="category-item">
-                    <img src="/images/categories/dog-toys.jpg" alt="dog-toys">
-                    <span>Toys</span>
-                </a>
+                <div th:each="category : ${categories}" class="category-item">
+                    <a th:href="@{'/products/category/' + ${category}}" class="category-item">
+                        <img th:src="@{'/images/categories/' + ${category} + '/dog-' + ${category} + '.jpg'}"
+                             th:alt="${category + '-category'}">
+                        <span th:text="${category}"></span>
+                    </a>
+                </div>
             </div>
         </div>
 
