@@ -3,6 +3,9 @@ package com.puppiespassion.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "products")
 @Getter
@@ -18,7 +21,11 @@ public class Product {
 
     private String name;
 
-    private String url;
+    @ManyToMany
+    @JoinTable(name = "products_pictures",
+            joinColumns = @JoinColumn(name = "product_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "picture_id", referencedColumnName = "id"))
+    private List<Picture> pictureUrls = new ArrayList<>();
 
     private String description;
 

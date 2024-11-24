@@ -39,16 +39,16 @@ public class AdminController {
 
     @PostMapping("/insert-new-product")
     public String insertNewProduct(Product productModel) {
-        Product product = Product.builder()
-                .name("")
-                .url("")
-                .description("")
-                .category(new Category())
-                .availableQuantity(0)
-                .quantitySold(0)
-                .build();
-        this.productService.insertNewProduct(product);
-        log.info("Successfully added new product [{}]", product.getName());
+//        Product product = Product.builder()
+//                .name("")
+//                .url("")
+//                .description("")
+//                .category(new Category())
+//                .availableQuantity(0)
+//                .quantitySold(0)
+//                .build();
+//        this.productService.insertNewProduct(product);
+//        log.info("Successfully added new product [{}]", product.getName());
         return "redirect:/insert-new-product";
     }
 
