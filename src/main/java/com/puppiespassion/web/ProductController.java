@@ -1,49 +1,40 @@
 package com.puppiespassion.web;
 
-import com.puppiespassion.model.Category;
-import com.puppiespassion.service.CategoryService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.puppiespassion.model.enums.CategoryEnum;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import java.util.List;
-
 @Controller
+@Slf4j
 public class ProductController {
-    private static final List<String> CATEGORIES = List.of("bags", "beds", "bowls", "clothes", "combs", "jewelry", "leashes", "toys");
-    private final CategoryService categoryService;
-
-    @Autowired
-    public ProductController(CategoryService categoryService) {
-        this.categoryService = categoryService;
-    }
-
     @ModelAttribute("categories")
-    public List<String> populateCategories() {
-        return CATEGORIES;
+    public CategoryEnum[] populateCategories() {
+        return CategoryEnum.values(); // Pass all enum values to the model
     }
 
     @GetMapping("/products")
     public String getAllProductsPage() {
+        log.info("Moving to page [/products/products.html]");
         return "products/products.html";
     }
 
     @GetMapping("/products/category/{category}")
-    public String getCategoryPage(@PathVariable String category, Model model) {
-        model.addAttribute("categories", CATEGORIES);
-        if (CATEGORIES.contains(category)) {
-            return "products/" + category;
+    public String getCategoryPage(@PathVariable String category) {
+        CategoryEnum[] values = CategoryEnum.values();
+        for (CategoryEnum value : values) {
+            log.info("Selected Category [{}]", category);
+            if (value.getName().toLowerCase().equals(category)) {
+                log.info("Moving to page [/products/{}.html]", category);
+                return "products/" + category;
+            }
         }
+        log.info("Redirecting to page [/products/products.html]");
         return "redirect:/products";
     }
 
-    @GetMapping("/products/category/{category}/")
-    public String getAllProductsPerCategoryPage() {
-        return "";
-    }
 }
 
 

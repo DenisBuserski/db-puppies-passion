@@ -36,10 +36,9 @@
             <h2>Categories</h2>
             <div class="categories">
                 <div th:each="category : ${categories}" class="category-item">
-                    <a th:href="@{'/products/category/' + ${category}}" class="category-item">
-                        <img th:src="@{'/images/categories/' + ${category} + '/dog-' + ${category} + '.jpg'}"
-                             th:alt="${category + '-category'}">
-                        <span th:text="${category}"></span>
+                    <a th:href="@{'/products/category/' + ${category.getName().toLowerCase()}}" class="category-item">
+                        <img th:src="${category.getUrl()}" th:alt="${category + '-category'}">
+                        <span th:text="${category.getName()}"></span>
                     </a>
                 </div>
             </div>
