@@ -1,10 +1,14 @@
 package com.puppiespassion.service.impl;
 
+import com.puppiespassion.model.Category;
 import com.puppiespassion.model.Product;
+import com.puppiespassion.model.enums.CategoryEnum;
 import com.puppiespassion.repository.ProductRepository;
 import com.puppiespassion.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class ProductServiceImpl implements ProductService {
@@ -18,5 +22,10 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public void insertNewProduct(Product product) {
         this.productRepository.save(product);
+    }
+
+    public List<Product> getProductsByCategory(String categoryName) {
+        // Assuming the ProductRepository has a method to find products by category
+        return productRepository.findByCategoryName(categoryName);
     }
 }
