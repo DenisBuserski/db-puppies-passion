@@ -38,9 +38,7 @@ public class ProductController {
     public String getAllProductsPage(Model model) {
         log.info("Moving to page [/products/products.html]");
         List<Product> products = productService.findBestSellers();
-
-        // Add the products to the model
-        model.addAttribute("products", products);
+        model.addAttribute("products", products); // Add the products to the model
         return "products/products.html";
     }
 

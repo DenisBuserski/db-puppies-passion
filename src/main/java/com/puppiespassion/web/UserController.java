@@ -71,14 +71,14 @@ public class UserController {
         return "redirect:/home";
     }
 
-    @PostMapping("/subscribe") // http://localhost:8080/users/subscribe
+    @PostMapping("/subscribe")
     public String subscribeToEmail(@RequestParam String email) {
         this.userService.subscribeUser(email);
         log.info("User successfully subscribed to newsletter!");
         return "redirect:/home";
     }
 
-    @PostMapping("/unsubscribe") // http://localhost:8080/users/unsubscribe
+    @PostMapping("/unsubscribe")
     public void unsubscribe(@RequestBody String email) {
         this.userService.unsubscribe(email);
     }

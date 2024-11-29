@@ -12,9 +12,6 @@ import com.puppiespassion.repository.UserRoleRepository;
 import com.puppiespassion.repository.UserSubscriptionRepository;
 import com.puppiespassion.service.UserService;
 import jakarta.validation.ConstraintViolationException;
-import jakarta.validation.Valid;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
@@ -28,9 +25,7 @@ import java.util.Optional;
 public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final UserRoleRepository userRoleRepository;
-
     private final UserSubscriptionRepository userSubscriptionRepository;
-
     UserRegistrationMapper userRegistrationMapper;
 
     @Autowired
@@ -68,8 +63,6 @@ public class UserServiceImpl implements UserService {
         Optional<UserSubscription> subscribedUser = this.userSubscriptionRepository.findByEmail(email);
         this.userSubscriptionRepository.delete(subscribedUser.get());
     }
-
-
 
     @Override
     public boolean deleteUserById(long id) {
