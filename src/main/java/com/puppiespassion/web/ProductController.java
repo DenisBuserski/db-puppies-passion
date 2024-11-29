@@ -56,16 +56,18 @@ public class ProductController {
                 model.addAttribute("category", categoryByName);
                 model.addAttribute("products", products);
                 log.info("Moving to page [/products/category/{}.html]", category);
-                return "products/" + category;
+                return "products/category";
             }
         }
         log.info("Redirecting to page [/products/products.html]");
         return "redirect:/products";
     }
 
-    @GetMapping("/products/{id}")
-    public String getProductPage(@PathVariable int id) {
-        return "";
+    @GetMapping("/products/{category}/{id}")
+    public String getProductPage(
+            @PathVariable String category,
+            @PathVariable int id) {
+        return "products/product";
     }
 
 
