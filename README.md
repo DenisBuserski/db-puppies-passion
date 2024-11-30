@@ -1,11 +1,16 @@
 # Puppies Passion
 
-## Description
+### Description
 
-## Configuration
+### Configuration
 
-## Installation
+### Installation
 
-## Usage
+### Usage
 
-## Technologies used
+### Technologies used
+
+- Java
+- Spring boot
+- HTML 
+- CSS
