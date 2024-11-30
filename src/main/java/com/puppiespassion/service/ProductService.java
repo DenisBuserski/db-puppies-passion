@@ -11,4 +11,6 @@ public interface ProductService {
     List<Product> findBestSellers();
 
     List<Product> findByCategoryName(String categoryName);
+
+    Product findProductById(long id);
 }

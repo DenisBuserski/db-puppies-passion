@@ -43,12 +43,16 @@ header nav ul li a {
     /* Take full size */
     height: 150vh;
     width: 100%;
+    display: flex; /* Use flexbox for alignment */
+    justify-content: center; /* Horizontally center content */
+    align-items: flex-start; /* Align content at the top */
 }
 
 
 /* HOME */
 .homepage-container {
-
+    margin-top: 20px; /* Add a margin if you want some spacing from the top */
+    text-align: center; /* Center-align text within the container */
 }
 
 
@@ -133,13 +137,14 @@ header nav ul li a {
 }
 
 
+
 /* PRODUCTS PAGE */
-.products-container {
+.categories-container {
     padding: 2rem;
     background-color: white;
 }
 
-.products-container h2 {
+.categories-container h2 {
     text-align: center;
     font-size: 2rem;
     margin-bottom: 1.5rem;
@@ -195,6 +200,7 @@ header nav ul li a {
 }
 
 
+
 /* CATEGORIES -> PRODUCTS PAGE */
 .categories-products-container {
     padding: 2rem;
@@ -206,7 +212,7 @@ header nav ul li a {
 .categories-products-container h1 {
     font-size: 2.5rem;
     margin-bottom: 2rem;
-    color: #333;
+    color: black;
 }
 
 /* Grid container for the product list */
@@ -269,6 +275,9 @@ header nav ul li a {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
+
+
+/* PRODUCT PAGE */
 
 
 

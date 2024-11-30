@@ -36,10 +36,10 @@ public class ProductController {
 
     @GetMapping("/products")
     public String getAllProductsPage(Model model) {
-        log.info("Moving to page [/products/products.html]");
+        log.info("Moving to page [/products/categories.html]");
         List<Product> products = productService.findBestSellers();
         model.addAttribute("products", products); // Add the products to the model
-        return "products/products.html";
+        return "products/categories";
     }
 
     @GetMapping("/products/category/{category}")
@@ -57,14 +57,18 @@ public class ProductController {
                 return "products/category";
             }
         }
-        log.info("Redirecting to page [/products/products.html]");
-        return "redirect:/products";
+        log.info("Redirecting to page [/products/categories.html]");
+        return "redirect:/categories";
     }
 
     @GetMapping("/products/{category}/{id}")
     public String getProductPage(
             @PathVariable String category,
-            @PathVariable int id) {
+            @PathVariable long id,
+            Model model) {
+        Product product = this.productService.findProductById(id);
+        model.addAttribute("product", product);
+
         return "products/product";
     }
 
